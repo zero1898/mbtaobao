@@ -1,0 +1,11 @@
+.fl {
+  @include float-left;
+}
+
+.fr {
+  @include float-right;
+}
+
+.float-none {
+  @include float-none;
+}
