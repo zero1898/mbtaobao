@@ -1,0 +1,4 @@
+// 去除一个值的单位
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}

@@ -1,0 +1,9 @@
+// px to rem function
+@function px2rem($px-value) {
+  $px-value: strip-units($px-value);
+  $base-font-size: strip-units($base-font-size);
+  @if ($px-value==0) {
+    @return $px-value;
+  }
+  @return #{$px-value / $base-font-size}rem;
+}

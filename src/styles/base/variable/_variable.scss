@@ -15,7 +15,8 @@
 // Font
 
 // basic fontsize for px2rem
-$baseline-px: 16px !default;
+$base-font-size: 16px !default;
+$rem-not-support-for-ie: false !default;
 
 // basic font-family
 $font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;

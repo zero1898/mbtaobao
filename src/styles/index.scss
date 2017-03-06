@@ -1,1 +1,285 @@
 @import "base/index";
+body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.top-fixed {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  @include px2rem(padding, 12px 15px 12px 74px);
+  background: #FE5400 url(../assets/image/logo.png) no-repeat px2rem(10px) px2rem(17px);
+  @include px2rem(background-size, 54px 40px);
+  .search {
+    // box-sizing: border-box;
+    width: 100%;
+    height: px2rem(50px);
+    border-radius: px2rem(8px);
+    background-color: #B52600;
+    text-align: center;
+    vertical-align: middle;
+    @include px2rem(font-size, 26px);
+    line-height: px2rem(50px);
+    color: #F0E0DC;
+    &>img {
+      display: inline-block;
+      margin-right: px2rem(5px);
+      vertical-align: middle;
+      width: px2rem(26px);
+      height: px2rem(26px);
+    }
+  }
+}
+
+.bottom-fixed {
+  display: flex;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000;
+  &>a {
+    text-align: center;
+    flex: 1;
+    height: px2rem(74px);
+    text-align: center;
+    vertical-align: middle;
+    &>img {
+      width: px2rem(87px);
+      height: px2rem(72px);
+    }
+  }
+}
+
+.scroll-wrap {
+  position: absolute;
+  top: px2rem(74px);
+  bottom: px2rem(74px);
+  left: 0;
+  width: 100%;
+  overflow: auto;
+  .top-banner {
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    height: px2rem(235px);
+    width: 100%;
+    .banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 80rem;
+      &>li {
+        float: left;
+        img {
+          display: block;
+          width: 10rem;
+          height: 100%;
+        }
+      }
+    }
+    .indicator {
+      position: absolute;
+      right: 0;
+      bottom: px2rem(6px);
+      span {
+        height: px2rem(17px);
+        width: px2rem(17px);
+        background: #ccc;
+        opacity: 0.6;
+        border-radius: 50%;
+        display: block;
+        float: left;
+        margin-right: px2rem(15px);
+        margin-bottom: px2rem(15px);
+        &.active {
+          background: #fc622e;
+        }
+      }
+    }
+  }
+  .navigation {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding-left: px2rem(24px);
+    padding-right: px2rem(24px);
+    @include px2rem(padding, 0 24px 24px);
+    .column {
+      flex-basis: 100%;
+      display: flex;
+      margin-top: px2rem(24px);
+      &>a {
+        flex: 1;
+        text-align: center;
+        color: #6f6f6f;
+        text-decoration: none;
+        &>img {
+          width: px2rem(85px);
+          height: px2rem(85px);
+        }
+        &>h2 {
+          @include font-dpr(12px);
+          font-weight: normal;
+          line-height: px2rem(45px);
+          height: px2rem(45px);
+        }
+      }
+    }
+  }
+  .handline {
+    display: flex;
+    width: 100%;
+    height: px2rem(72px);
+    margin-top: px2rem(2px);
+    background-color: #fff;
+    &>img {
+      box-sizing: border-box;
+      height: px2rem(34px);
+      width: px2rem(164px);
+      border-right: px2rem(2px) solid rgb(232, 232, 232);
+      @include px2rem(margin, 19px 0);
+      @include px2rem(padding, 0 22px);
+    }
+    &>.handmsg {
+      flex: 1;
+      position: relative;
+      height: px2rem(72px);
+      width: 100%;
+      line-height: px2rem(72px);
+      overflow: hidden;
+      &>li {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #fff;
+        &>span {
+          @include font-dpr(14px);
+          line-height: px2rem(28px);
+          color: rgb(216, 20, 33);
+          display: inline-block;
+          @include px2rem(margin, 10px 12px 10px 20px);
+          @include px2rem(padding, 4px 4px 6px);
+          border: px2rem(2px) solid rgb(216, 20, 33);
+          border-radius: px2rem(8px);
+        }
+        &>a {
+          color: rgb(53, 53, 53);
+          text-decoration: none;
+          @include font-dpr(15px);
+        }
+      }
+    }
+  }
+  .trushbuy {
+    width: 100%;
+    height: px2rem(380px);
+    margin-top: px2rem(12px);
+    background-color: #fff;
+    .trush1 {
+      position: relative;
+      box-sizing: border-box;
+      float: left;
+      width: px2rem(285px);
+      height: 100%;
+      padding-bottom: px2rem(15px);
+      &>img {
+        width: 100%;
+        height: 100%;
+      }
+      &>.count {
+        position: absolute;
+        z-index: 3;
+        top: px2rem(105px);
+        left: px2rem(15px);
+        &>span {
+          display: inline-block;
+          width: px2rem(40px);
+          height: px2rem(40px);
+          vertical-align: middle;
+          color: #fff;
+          background: #333;
+          border-radius: px2rem(5px);
+          line-height: px2rem(40px);
+          text-align: center;
+          font-size: px2rem(25px);
+          &.dot {
+            width: px2rem(6px);
+            color: #333;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .trush2 {
+      float: right;
+      box-sizing: border-box;
+      width: px2rem(465px);
+      border-left: px2rem(1px) solid rgb(232, 232, 232);
+      .trush2_1 {
+        box-sizing: border-box;
+        height: px2rem(173px);
+        width: 100%;
+        border-bottom: px2rem(1px) solid rgb(232, 232, 232);
+        display: flex;
+        &>img {
+          flex: 1;
+          height: px2rem(173px);
+        }
+      }
+      .trush2_2 {
+        height: px2rem(204px);
+        width: 100%;
+        display: flex;
+        &>img {
+          flex: 1;
+          height: px2rem(204px);
+        }
+      }
+    }
+  }
+  .cheap {
+    width: 100%;
+    margin-top: px2rem(12px);
+    background-color: #fff;
+    .title {
+      height: px2rem(64px);
+      width: 100%;
+      text-align: center;
+      &>img {
+        display: inline-block;
+        width: px2rem(32px);
+        height: px2rem(32px);
+        vertical-align: sub;
+      }
+      &>span {
+        @include font-dpr(14px);
+        line-height: px2rem(64px);
+        color: rgb(255, 53, 14);
+      }
+    }
+    .main {
+      .row {
+        box-sizing: border-box;
+        border-top: px2rem(1px) solid rgb(232, 232, 232);
+        width: 100%;
+        height: px2rem(219px);
+        display: flex;
+        &>img {
+          flex: 1;
+          display: inline-block;
+          height: 100%;
+          border-right: px2rem(1px) solid rgb(232, 232, 232);
+        }
+      }
+    }
+  }
+}

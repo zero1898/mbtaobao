@@ -3,10 +3,267 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>mobile taobao</title>
+  <script>
+    ! function (N, M) {
+      function L() {
+        var a = I.getBoundingClientRect().width;
+        a / F > 540 && (a = 540 * F);
+        var d = a / 10;
+        I.style.fontSize = d + "px", D.rem = N.rem = d
+      }
+      var K, J = N.document,
+        I = J.documentElement,
+        H = J.querySelector('meta[name="viewport"]'),
+        G = J.querySelector('meta[name="flexible"]'),
+        F = 0,
+        E = 0,
+        D = M.flexible || (M.flexible = {});
+      if (H) {
+        console.warn("将根据已有的meta标签来设置缩放比例");
+        var C = H.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+        C && (E = parseFloat(C[1]), F = parseInt(1 / E))
+      } else {
+        if (G) {
+          var B = G.getAttribute("content");
+          if (B) {
+            var A = B.match(/initial\-dpr=([\d\.]+)/),
+              z = B.match(/maximum\-dpr=([\d\.]+)/);
+            A && (F = parseFloat(A[1]), E = parseFloat((1 / F).toFixed(2))), z && (F = parseFloat(z[1]), E = parseFloat(
+              (1 / F).toFixed(2)))
+          }
+        }
+      }
+      if (!F && !E) {
+        var y = N.navigator.userAgent,
+          x = (!!y.match(/android/gi), !!y.match(/iphone/gi)),
+          w = x && !!y.match(/OS 9_3/),
+          v = N.devicePixelRatio;
+        F = x && !w ? v >= 3 && (!F || F >= 3) ? 3 : v >= 2 && (!F || F >= 2) ? 2 : 1 : 1, E = 1 / F
+      }
+      if (I.setAttribute("data-dpr", F), !H) {
+        if (H = J.createElement("meta"), H.setAttribute("name", "viewport"), H.setAttribute("content", "initial-scale=" +
+            E + ", maximum-scale=" + E + ", minimum-scale=" + E + ", user-scalable=no"), I.firstElementChild) {
+          I.firstElementChild.appendChild(H)
+        } else {
+          var u = J.createElement("div");
+          u.appendChild(H), J.write(u.innerHTML)
+        }
+      }
+      N.addEventListener("resize", function () {
+        clearTimeout(K), K = setTimeout(L, 300)
+      }, !1), N.addEventListener("pageshow", function (b) {
+        b.persisted && (clearTimeout(K), K = setTimeout(L, 300))
+      }, !1), "complete" === J.readyState ? J.body.style.fontSize = 12 * F + "px" : J.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          J.body.style.fontSize = 12 * F + "px"
+        }, !1), L(), D.dpr = N.dpr = F, D.refreshRem = L, D.rem2px = function (d) {
+        var c = parseFloat(d) * this.rem;
+        return "string" == typeof d && d.match(/rem$/) && (c += "px"), c
+      }, D.px2rem = function (d) {
+        var c = parseFloat(d) / this.rem;
+        return "string" == typeof d && d.match(/px$/) && (c += "rem"), c
+      }
+    }(window, window.lib || (window.lib = {}));
+
+  </script>
 </head>
 
 <body>
+  <header class="top-fixed">
+    <div class="search">
+      <img src="static/image/search_ico.gif" alt="search_ico">
+      <span>寻找宝贝店铺</span>
+    </div>
+  </header>
+
+  <div class="scroll-wrap">
+
+    <div class="top-banner">
+      <ul class="banner">
+        <li>
+          <a href="#">
+            <img src="static/image/banner/banner_1.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/image/banner/banner_2.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/image/banner/banner_3.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/image/banner/banner_4.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/image/banner/banner_5.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/image/banner/banner_6.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/image/banner/banner_7.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/image/banner/banner_8.jpg" alt="">
+          </a>
+        </li>
+      </ul>
+      <div class="indicator">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <div class="column">
+        <a href="#">
+          <img src="static/image/nav/nav_1.png" alt="" />
+          <h2>天猫</h2>
+        </a>
+        <a href="#">
+          <img src="static/image/nav/nav_2.png" alt="" />
+          <h2>聚划算</h2>
+        </a>
+        <a href="#">
+          <img src="static/image/nav/nav_3.png" alt="" />
+          <h2>天猫国际</h2>
+        </a>
+        <a href="#">
+          <img src="static/image/nav/nav_4.png" alt="" />
+          <h2>外卖</h2>
+        </a>
+        <a href="#">
+          <img src="static/image/nav/nav_5.png" alt="" />
+          <h2>天猫超市</h2>
+        </a>
+      </div>
+      <div class="column">
+        <a href="#">
+          <img src="static/image/nav/nav_6.png" alt="" />
+          <h2>充值中心</h2>
+        </a>
+        <a href="#">
+          <img src="static/image/nav/nav_7.png" alt="" />
+          <h2>飞猪旅行</h2>
+        </a>
+        <a href="#">
+          <img src="static/image/nav/nav_8.png" alt="" />
+          <h2>领金币</h2>
+        </a>
+        <a href="#">
+          <img src="static/image/nav/nav_9.png" alt="" />
+          <h2>到家</h2>
+        </a>
+        <a href="#">
+          <img src="static/image/nav/nav_10.png" alt="" />
+          <h2>分类</h2>
+        </a>
+      </div>
+    </nav>
+
+    <div class="handline">
+      <img src="static/image/handline.png" alt="handline">
+      <ul class="handmsg">
+        <li>
+          <span>最新</span><a href="#">啊大多发生法大师傅</a></li>
+        <li>
+          <span>最新</span><a href="#">离开了就哦骄傲叫哦</a></li>
+        <li>
+          <span>最新</span><a href="#">哦鸡尾酒啊等你发额居然</a></li>
+        <li>
+          <span>最新</span><a href="#">哦仅为佛啊都佛啊额我如今阿飞</a></li>
+        <li>
+          <span>最新</span><a href="#">爱的色放啦额哦啊喂反复</a></li>
+        <li>
+          <span>最新</span><a href="#">啊奥额我就反对克服恐惧我分</a></li>
+      </ul>
+    </div>
+
+    <div class="trushbuy">
+      <div class="trush1">
+        <img src="static/image/trushbuy/buy1.jpg" alt="">
+        <div class="count">
+          <span>00</span>
+          <span class="dot">:</span>
+          <span>00</span>
+          <span class="dot">:</span>
+          <span>00</span>
+          </article>
+        </div>
+      </div>
+      <div class="trush2">
+        <div class="trush2_1">
+          <img src="static/image/trushbuy/buy2.jpg" alt="">
+          <img src="static/image/trushbuy/buy3.png" alt="">
+        </div>
+        <div class="trush2_2">
+          <img src="static/image/trushbuy/buy4.jpg" alt="">
+          <img src="static/image/trushbuy/buy5.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="cheap">
+      <div class="title">
+        <img src="static/image/cheap/title.png" alt="">
+        <span>超实惠</span>
+      </div>
+      <div class="main">
+        <div class="row">
+          <img src="static/image/cheap/cheap1.jpg" alt="">
+          <img src="static/image/cheap/cheap2.png" alt="">
+          <img src="static/image/cheap/cheap3.png" alt="">
+          <img src="static/image/cheap/cheap4.jpg" alt="">
+        </div>
+        <div class="row">
+          <img src="static/image/cheap/cheap5.png" alt="">
+          <img src="static/image/cheap/cheap6.jpg" alt="">
+          <img src="static/image/cheap/cheap7.jpg" alt="">
+          <img src="static/image/cheap/cheap8.png" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="bottom-fixed">
+    <a href="#" class="home">
+      <img src="static/image/footer/home.png" alt="">
+    </a>
+    <a href="#" class="delivery">
+      <img src="static/image/footer/delivery.png" alt="">
+    </a>
+    <a href="#" class="cart">
+      <img src="static/image/footer/cart.png" alt="">
+    </a>
+    <a href="#" class="my">
+      <img src="static/image/footer/my.png" alt="">
+    </a>
+    <a href="#" class="more">
+      <img src="static/image/footer/more.png" alt="">
+    </a>
+  </footer>
 </body>
 
 </html>
